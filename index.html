@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#174a3a">
+  <meta name="description" content="إدارة المكتبة والكتب">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <title>مكتبتي</title>
+</head>
+<body>
+  <header class="topbar"><div><span class="eyebrow">إدارة المكتبة</span><h1>مكتبتي</h1></div><span id="connection" class="status">يعمل محلياً</span></header>
+  <main>
+    <section class="summary"><div><span>إجمالي الكتب</span><strong id="book-count">0</strong></div><div><span>إجمالي النسخ</span><strong id="copy-count">0</strong></div></section>
+    <section class="panel">
+      <div class="section-heading"><h2>إضافة كتاب</h2><span class="muted">يحفظ على هذا الجهاز</span></div>
+      <form id="book-form">
+        <label>عنوان الكتاب<input name="title" required maxlength="140" placeholder="اسم الكتاب"></label>
+        <div class="two-col"><label>المؤلف<input name="author" maxlength="100" placeholder="اسم المؤلف"></label><label>التصنيف<input name="category" maxlength="80" placeholder="مثلاً: قصص"></label></div>
+        <div class="two-col"><label>عدد النسخ<input name="quantity" type="number" min="0" step="1" value="1" required></label><label>السعر<input name="price" type="number" min="0" step="250" value="0"></label></div>
+        <label>ملاحظات<input name="notes" maxlength="240" placeholder="اختياري"></label>
+        <button type="submit">حفظ الكتاب</button>
+      </form>
+    </section>
+    <section class="panel">
+      <div class="section-heading"><h2>كتبي</h2><button id="print-button" class="secondary" type="button">طباعة A4</button></div>
+      <input id="search" class="search" type="search" placeholder="ابحث عن كتاب أو مؤلف…">
+      <div id="book-list" class="book-list"><p class="empty">لا توجد كتب بعد. أضف أول كتاب.</p></div>
+    </section>
+    <section class="panel">
+      <h2>نسخة احتياطية</h2>
+      <p class="muted">يمكنك تنزيل نسخة من بيانات الكتب المحفوظة على هذا الجهاز.</p>
+      <button id="export-button" class="secondary" type="button">تنزيل نسخة JSON</button>
+      <label class="file-label">استيراد نسخة JSON<input id="import-file" type="file" accept="application/json"></label>
+    </section>
+  </main>
+  <footer>الإصدار الأول التجريبي · البيانات محلية على هذا الجهاز</footer>
+  <script src="app.js"></script>
+</body>
+</html>
